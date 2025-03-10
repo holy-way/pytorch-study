@@ -18,6 +18,34 @@ Study Reference : https://pytorch.org/tutorials/beginner/basics/quickstart_tutor
 	* Wraps an iterable over dataset
 	* Supports automatic batching, sampling, shuffling and multiprocess data loading.
 
+```
+training_data = datasets.FashionMNIST(
+	root="data",
+	train=True,
+	download=True,
+	transform=ToTensor()
+)		
+test_data = datasets.FashionMNIST(
+	root="data",
+	train=False,
+	download=True,
+	transform=ToTensor()
+)
+
+
+batch_size = 64
+
+# Create data loaders
+
+train_dataloader = DataLoader(training_data, batch_size=batch_size)
+test_dataloader = DataLoader(test_data, batch_size=batch_size)
+
+for X, y in test_dataloader:
+	print(f"Shape of X [N, C, H, W]: {X.shape}")
+	print(f"Shape of y : {y.shape} {y.dtype}")
+	break
+```
+
 # Creating Models
 * To define a neural network in Pytorch, create a class that inherits from 'nn.Module'
 * Define the layers of the network in the '__init__' function
