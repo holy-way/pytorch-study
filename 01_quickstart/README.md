@@ -1,6 +1,6 @@
 Study Reference : https://pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html#working-with-data
 
-# Working with data
+# 1. Working with data
 ## Dataset & DataLoader
 * 'torch.utils.data.Dataset' stores the samples and their corresponding labels
 * 'torch.utils.data.DataLoader' wraps an iterable around the 'Dataset'
@@ -46,7 +46,7 @@ for X, y in test_dataloader:
 	break
 ```
 
-# Creating Models
+# 2. Creating Models
 * To define a neural network in Pytorch, create a class that inherits from 'nn.Module'
 * Define the layers of the network in the '__init__' function
 * Specify how data will pass through the network in the 'forward' funciton 
@@ -77,7 +77,7 @@ class NeuralNetwork(nn.Module):
 model = NeuralNetwork().to(device)
 ```
 
-# Optimizing the Model Parameters
+# 3. Optimizing the Model Parameters
 * Loss function & Optimizer are neeed.
 ```
 loss_fn = nn.CrossEntropyLoss()
@@ -103,7 +103,7 @@ test_loss += loss_fn(pred, y).item()
 correct += (pred.argmax(1) == y).type(torch.float).sum().item()
 ```
 
-# Saving Models
+# 4. Saving Models
 * Serializer the internal state dictionary (Containing the model parameters)
 
 ```
@@ -111,7 +111,7 @@ torch.save(model.state_dict(), "model.pth")
 print("Saved Pytorch Model State to model.pth")
 ```
 
-# Loading Models
+# 5. Loading Models
 * Re-creating the model structure
 * Loading the state dictionary into it
 
